@@ -2,6 +2,7 @@ package com.lockedMeApp.dao.impl;
 
 import java.io.File;
 import java.io.IOException;
+import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.List;
 //import java.nio.file.*;
@@ -13,7 +14,7 @@ import com.lockedMeApp.modal.Files;
 
 public class FilesDAOImpl implements FilesDAO{
 	
-	private String dir = "/Users/divyauchil/eclipse-workspace/Phase1_Project_Divya/lockedMeApp/fileFolder/";
+	private String dir = Paths.get("").toAbsolutePath().toString()+"/fileFolder/";
 	private File filesdir = new File(dir);
 
 	@Override
@@ -56,7 +57,6 @@ public class FilesDAOImpl implements FilesDAO{
 
 	@Override
 	public void getAllFiles() throws BusinessException {
-		
 		File[] files = filesdir.listFiles();
 		
 		if(files.length < 1) {
