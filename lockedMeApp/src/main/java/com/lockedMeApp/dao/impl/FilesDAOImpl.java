@@ -44,15 +44,29 @@ public class FilesDAOImpl implements FilesDAO{
 	@Override
 	public void deleteFile(String fname) throws BusinessException, IOException {
 		File f = new File(dir + fname);
+		if (f.exists() && f.getCanonicalPath().endsWith(f.getName())){
+			System.out.println(f + "exists");
+			f.delete();
+			System.out.println(fname + "deleted successfully");
+		}else{
+			throw new BusinessException("File does not exists");
+		}
+		/*if(f.delete()){
+			
+			System.out.println(fname + "deleted successfully");
+		}else {
+			throw new BusinessException("File does not exists");
+		}*/
 		
-		if (f.getPath().equals(f.getCanonicalPath())) {
+		
+		/*if (f.getPath().equals(f.getCanonicalPath())) {
 			System.out.println(f + "exists");
 			f.delete();
 			System.out.println(fname + "deleted successfully");
 		}else {
 			throw new BusinessException("File does not exists");
 		}
-		
+		*/
 	}
 
 	@Override
