@@ -3,10 +3,6 @@ package com.lockedMeApp.dao.impl;
 import java.io.File;
 import java.io.IOException;
 import java.nio.file.Paths;
-import java.util.ArrayList;
-import java.util.List;
-//import java.nio.file.*;
-
 
 import com.lockedMeApp.dao.FilesDAO;
 import com.lockedMeApp.exceptions.BusinessException;
@@ -34,7 +30,7 @@ public class FilesDAOImpl implements FilesDAO{
 	public void getFilesByFilename(String fname) throws BusinessException, IOException {
 		File f = new File(dir + fname);
 		
-		if (f.getPath().equals(f.getCanonicalPath())) {
+		if (f.exists() && f.getCanonicalPath().endsWith(f.getName())){
 			System.out.println(f + " exists");
 		}else {
 			throw new BusinessException("File does not exists");
@@ -59,7 +55,7 @@ public class FilesDAOImpl implements FilesDAO{
 		File[] files = filesdir.listFiles();
 		
 		if(files.length < 1) {
-			throw new BusinessException("Directory does not exists or Direcotry is empty");
+			throw new BusinessException("Directory does not exists or Directory is empty");
 		}
 		System.out.println ("Files in the folder are :");
 		

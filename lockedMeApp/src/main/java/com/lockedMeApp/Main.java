@@ -32,7 +32,9 @@ public class Main {
 		    System.out.println("3) Exit");
 		    System.out.println("-----------------------------------------");
 		try {
+			
 			chMain = Integer.parseInt(scanner.nextLine());
+			
 		}catch(NumberFormatException e){
 			System.out.println(e.getMessage());
 		}
@@ -47,7 +49,7 @@ public class Main {
 			} catch (BusinessException e1) {
 				System.out.println(e1.getMessage());
 			} 
-	         
+			chMain=0;
 	         break;
 	         
 	         case 2:
@@ -73,7 +75,6 @@ public class Main {
 	        		
 	        		files.setFname(scanner.nextLine());
 	        		
-	        		
 	        			try {
 	        				filebo.addFile(files);
 	        			} catch (BusinessException e) {
@@ -83,6 +84,7 @@ public class Main {
 	        				
 	        				System.out.println (e.getMessage());
 	        			}
+	        			chSub=0;
 	            break;
 	            case 2:
 	            	try {
@@ -95,6 +97,7 @@ public class Main {
 	        			
 	        			System.out.println (e.getMessage());
 	        		}
+	            	chSub=0;
 	            break;
 	            case 3:
 	            	try {
@@ -107,8 +110,10 @@ public class Main {
 	        			
 	        			System.out.println (e.getMessage());
 	        		}
+	            	chSub=0;
 		        break;
 	            case 4:
+	            	System.out.println("Going to Main Menu");
 			        break;
 	            default: System.out.println("Please enter valid Sub Menu Option");
 	         }
@@ -124,6 +129,8 @@ public class Main {
 	   
 		}while(chMain!=3);
 		
+		scanner.close();
 	}
+	
 
 }
