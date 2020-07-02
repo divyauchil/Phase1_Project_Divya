@@ -51,22 +51,7 @@ public class FilesDAOImpl implements FilesDAO{
 		}else{
 			throw new BusinessException("File does not exists");
 		}
-		/*if(f.delete()){
-			
-			System.out.println(fname + "deleted successfully");
-		}else {
-			throw new BusinessException("File does not exists");
-		}*/
 		
-		
-		/*if (f.getPath().equals(f.getCanonicalPath())) {
-			System.out.println(f + "exists");
-			f.delete();
-			System.out.println(fname + "deleted successfully");
-		}else {
-			throw new BusinessException("File does not exists");
-		}
-		*/
 	}
 
 	@Override
